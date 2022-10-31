@@ -1,0 +1,50 @@
+managed implementation in class zbp_i_status unique;
+strict ;
+
+define behavior for zi_status //alias <alias_name>
+persistent table zbc_statust
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _StatusTransitions { create; }
+  association _Texts { create; }
+  mapping for zbc_statust
+  {
+    Status = status;
+  }
+}
+
+define behavior for zi_status_trans //alias <alias_name>
+persistent table zbc_status_trans
+lock dependent by _StatusFrom
+authorization dependent by _StatusFrom
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) StatusFrom;
+  association _StatusTo;
+  association _StatusFrom;
+  mapping for ZBC_STATUS_TRANS
+  {
+    StatusFrom = status_from;
+    StatusTo = status_to;
+    Text = text;
+  }
+}
+
+define behavior for zi_status_text
+persistent table zbc_status_text
+lock dependent by _Status
+authorization dependent by _Status
+{
+  update;
+  delete;
+  field ( readonly ) Status;
+  association _Status;
+  mapping for ZBC_STATUS_text corresponding;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Projects'
+define service Z_Projects {
+  expose zi_projects;
+  expose zvh_users;
+}

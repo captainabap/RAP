@@ -1,0 +1,22 @@
+managed implementation in class zbp_i_projects unique;
+strict ( 2 );
+
+define behavior for zi_projects //alias <alias_name>
+persistent table zbc_projects
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  mapping for zbc_projects
+  {
+    ProjectKey = project_key;
+    Name = name;
+    ProjectManager = project_manager;
+    ChangedBy = changed_by;
+    ChangedAt = changed_at;
+    CreatedBy = created_by;
+  }
+}

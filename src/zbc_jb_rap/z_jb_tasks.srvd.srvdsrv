@@ -1,0 +1,7 @@
+@EndUserText.label: 'Tasks'
+define service Z_jb_tasks {
+  expose zi_jb_tasks as tasks;
+  expose zi_jb_comments as Comments;
+  expose zi_jb_users as Users;
+  expose zi_jb_status_text as StatusText;
+}

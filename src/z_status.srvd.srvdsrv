@@ -1,0 +1,6 @@
+@EndUserText.label: 'Status Maintenance'
+define service Z_status {
+  expose zc_status as Status;
+  expose zc_status_trans as StatusTrans;
+  expose zc_status_text as StatusText;
+}

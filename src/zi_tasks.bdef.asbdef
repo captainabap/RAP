@@ -1,0 +1,50 @@
+managed implementation in class zbp_i_tasks unique;
+strict ( 2 );
+
+define behavior for zi_tasks //alias <alias_name>
+late numbering
+persistent table zbc_tasks
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  action copy parameter zcds_copy_parameter result [0..1] entity zi_tasks;
+  action close;
+  association _Comments { create; }
+  field ( readonly ) TaskKey;
+  field ( mandatory : create ) Project;
+  field ( mandatory ) Summary;
+  mapping for zbc_tasks
+  {
+    TaskKey = task_key;
+    Summary = summary;
+    Status = status;
+    Project = project;
+    Description = description;
+    Assignee = assignee;
+    Type = type;
+    Author = author;
+    ChangedAt = changed_at;
+    CreatedAt = created_at;
+    DueDate = due_date;
+    Solution = solution;
+    Priority = priority;
+    Product = product;
+  }
+}
+
+define behavior for zi_comments //alias <alias_name>
+persistent table zbc_comments
+late numbering
+lock dependent by _Task
+authorization dependent by _Task
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) TaskKey;
+  association _Task;
+}
