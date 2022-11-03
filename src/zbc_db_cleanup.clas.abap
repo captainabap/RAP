@@ -1,15 +1,18 @@
-CLASS zbc_create_status_values DEFINITION
+CLASS zbc_db_cleanup DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
   interfaces if_oo_adt_classrun.
+  PRIVATE SECTION.
+
+    METHODS delete_invalid_taskkeys.
 ENDCLASS.
 
 
 
-CLASS zbc_create_status_values IMPLEMENTATION.
+CLASS zbc_db_cleanup IMPLEMENTATION.
 
 
 
@@ -28,7 +31,13 @@ CLASS zbc_create_status_values IMPLEMENTATION.
 *                                  left outer join zbc_tasks as t
 *                                  on c~task_id = t~task_id ).
 *    delete from zbc_comments where task_key = ''.
-    update zbc_tasks set project = left( task_key, instr( task_key, '-' ) - 1 ).
+    delete_invalid_taskkeys( ).
+  ENDMETHOD.
+
+
+  METHOD delete_invalid_taskkeys.
+
+delete from zbc_tasks where right( task_key, length( task_key ) - instr( task_key, '-' ) ) = ''.
   ENDMETHOD.
 
 ENDCLASS.

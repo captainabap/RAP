@@ -1,0 +1,33 @@
+projection implementation in class zbp_c_tasks unique;
+strict ( 2 );
+
+define behavior for zc_tasks //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action copy;
+  use action close;
+  action cancel ;
+
+  field ( readonly ) Author,
+                     ChangedAt,
+                     CreatedAt;
+  field ( readonly : update ) Project;
+  field ( readonly ) TaskKey;
+  field ( mandatory : create ) Project;
+  field ( mandatory ) Summary;
+  use association _Comments { create; }
+}
+
+define behavior for zc_comments
+{
+  use update;
+  use delete;
+
+  field ( readonly ) Author,
+                     ChangedAt,
+                     CreatedAt;
+  use association _Task;
+}

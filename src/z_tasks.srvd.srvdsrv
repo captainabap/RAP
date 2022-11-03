@@ -1,0 +1,8 @@
+@EndUserText.label: 'Task Management'
+define service Z_tasks {
+  expose zc_tasks;
+  expose zc_comments;
+  expose zi_users;
+  expose zi_status;
+  expose zi_projects;
+}

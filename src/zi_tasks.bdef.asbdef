@@ -11,7 +11,7 @@ authorization master ( instance )
   create;
   update;
   delete;
-  action copy parameter zcds_copy_parameter result [0..1] entity zi_tasks;
+  factory action copy parameter zcds_copy_parameter [1];
   action close;
   association _Comments { create; }
   field ( readonly ) TaskKey;
@@ -47,4 +47,13 @@ authorization dependent by _Task
   delete;
   field ( readonly ) TaskKey;
   association _Task;
+  mapping for zbc_comments
+  {
+    TaskKey = task_key;
+    CommentNr = comment_nr;
+    CommentText = comment_text;
+    Author = author;
+    ChangedAt = changed_at;
+    CreatedAt = created_at;
+  }
 }

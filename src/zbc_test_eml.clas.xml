@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZBC_CREATE_STATUS_VALUES</CLSNAME>
+    <CLSNAME>ZBC_TEST_EML</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Generate Demo DAta</DESCRIPT>
+    <DESCRIPT>Test Entity Manipulation Language</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

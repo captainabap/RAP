@@ -1,5 +1,5 @@
 projection;
-strict ( 1 );
+strict ;
 
 define behavior for zc_status //alias <alias_name>
 {
@@ -8,7 +8,6 @@ define behavior for zc_status //alias <alias_name>
   use delete;
 
   use association _StatusTransitions { create; }
-
   use association _Texts {create; }
 }
 
