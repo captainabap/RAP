@@ -3,14 +3,10 @@
 {
 "FROM":
 [
-"ZBC_TASKS"
+"ZJB_TASKS"
 ],
 "ASSOCIATED":
-[
-"ZI_JB_COMMENTS",
-"ZI_JB_STATUS_TEXT",
-"ZI_JB_USERS"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

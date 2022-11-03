@@ -3,7 +3,7 @@
 {
 "FROM":
 [
-"ZBC_USERS"
+"ZBC_TASKS"
 ],
 "ASSOCIATED":
 [],
