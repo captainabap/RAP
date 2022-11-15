@@ -22,7 +22,7 @@ on $projection.Project = _Project.ProjectKey
     description as Description,
     assignee as Assignee,
     type as Type,
-    author as Author,
+    author as Author, 
     changed_at as ChangedAt,
     created_at as CreatedAt,
     due_date as DueDate,

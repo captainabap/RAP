@@ -1,8 +1,8 @@
 managed implementation in class zbp_i_tasks unique;
-strict ( 2 );
+strict ;
 
 define behavior for zi_tasks //alias <alias_name>
-late numbering
+//late numbering
 persistent table zbc_tasks
 lock master
 authorization master ( instance )
@@ -11,7 +11,7 @@ authorization master ( instance )
   create;
   update;
   delete;
-  factory action copy parameter zcds_copy_parameter [1];
+ // factory action copy parameter zcds_copy_parameter [1];
   action close;
   association _Comments { create; }
   field ( readonly ) TaskKey;
@@ -38,7 +38,7 @@ authorization master ( instance )
 
 define behavior for zi_comments //alias <alias_name>
 persistent table zbc_comments
-late numbering
+//late numbering
 lock dependent by _Task
 authorization dependent by _Task
 //etag master <field_name>

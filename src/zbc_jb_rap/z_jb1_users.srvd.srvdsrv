@@ -1,0 +1,4 @@
+@EndUserText.label: 'Users Service'
+define service Z_jb1_users {
+  expose zi_jb1_users as Users;
+}

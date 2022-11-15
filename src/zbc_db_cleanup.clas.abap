@@ -8,6 +8,8 @@ CLASS zbc_db_cleanup DEFINITION
   PRIVATE SECTION.
 
     METHODS delete_invalid_taskkeys.
+    METHODS clean_task_key.
+    METHODS clean_user_id.
 ENDCLASS.
 
 
@@ -18,8 +20,10 @@ CLASS zbc_db_cleanup IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
   "  INSERT into zbc_statust values @( value #( status = 'NEW'   ) ).
-*    update zbc_users set user_id = upper( left( concat( left( firstname , 1 ) , lastname ), 12 ) ).
-*     update zbc_tasks set task_key = replace( task_key, '_', '-' ).
+   clean_user_id( ).
+*delete from zbc_users where firstname = ''.
+"   clean_task_key( ).
+
 *     insert zbc_comments from ( select c~task_id ,
 *                                       t~task_key,
 *                                       c~comment_nr,
@@ -31,13 +35,37 @@ CLASS zbc_db_cleanup IMPLEMENTATION.
 *                                  left outer join zbc_tasks as t
 *                                  on c~task_id = t~task_id ).
 *    delete from zbc_comments where task_key = ''.
-    delete_invalid_taskkeys( ).
+  "  delete_invalid_taskkeys( ).
   ENDMETHOD.
 
 
   METHOD delete_invalid_taskkeys.
 
 delete from zbc_tasks where right( task_key, length( task_key ) - instr( task_key, '-' ) ) = ''.
+  ENDMETHOD.
+
+
+  METHOD clean_task_key.
+
+    UPDATE zbc_tasks SET task_key = replace( task_key, '_', '-' ).
+
+  ENDMETHOD.
+
+
+  METHOD clean_user_id.
+
+select u~user_id ,
+       lpad(  cast( row_number( ) over( order by user_id ) as char ), 10, '0' ) as num
+from zbc_users as u
+into table @data(mapping).
+
+loop at mapping into data(ls_mapping).
+    UPDATE zbc_tasks SET author = ls_mapping-user_id
+                   where author = ls_mapping-num.
+
+    UPDATE zbc_tasks SET assignee = ls_mapping-user_id
+                   where assignee = ls_mapping-num.
+endloop.
   ENDMETHOD.
 
 ENDCLASS.

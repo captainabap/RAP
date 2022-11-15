@@ -1,4 +1,13 @@
-unmanaged;
-define behavior for ZJB_TASKS
-  {
-  }
+unmanaged implementation in class zbp_jb_tasks unique;
+strict;
+
+define behavior for ZJB_TASKS //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

@@ -1,0 +1,38 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true   
+annotate view zi_jb1_users with
+{
+  @UI.facet: [  { id: 'User',
+                  purpose:  #STANDARD,
+                  type:     #IDENTIFICATION_REFERENCE,
+                  label:    'User',
+                  position: 10 }  ]
+  @UI.lineItem:      [ { position: 10 } ]
+  @UI.identification:[ { position: 10,
+                         label:    'User ID' } ]
+  @Search: { defaultSearchElement: true,
+             fuzzinessThreshold: 0.95,
+             ranking: #HIGH }
+  UserId;
+  @Search: { defaultSearchElement: true,
+             fuzzinessThreshold: 0.7,
+             ranking: #LOW }
+  @UI: { lineItem:       [ { position: 20  } ] ,
+         selectionField: [{ position: 10 }]}
+  Firstname;
+  @Search: { defaultSearchElement: true,
+             fuzzinessThreshold: 0.7,
+             ranking: #LOW }
+  @UI: { lineItem:       [ { position: 30, label: 'Nachname'  } ] ,
+         selectionField: [{ position: 20 }]}
+  Lastname;
+  @UI: { lineItem:       [ { position: 40  } ] }
+  Email;
+  @UI: { lineItem:       [ { position: 50 } ] ,
+         selectionField: [{ position: 40  } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'zi_jb1c_gender',
+                                                 element: 'value' } } ]
+  Gender;
+  @UI: { lineItem:       [ { position: 60 } ] }
+  DateOfBirth;
+}

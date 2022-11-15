@@ -1,5 +1,5 @@
 projection implementation in class zbp_c_tasks unique;
-strict ( 2 );
+strict;
 
 define behavior for zc_tasks //alias <alias_name>
 {
@@ -7,7 +7,7 @@ define behavior for zc_tasks //alias <alias_name>
   use update;
   use delete;
 
-  use action copy;
+  //use action copy;
   use action close;
   action cancel ;
 

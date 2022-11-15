@@ -1,4 +1,13 @@
-unmanaged;
-define behavior for ZJB_C_TASKS
-  {
-  }
+unmanaged implementation in class zbp_jb_c_tasks unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZJB_C_TASKS //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

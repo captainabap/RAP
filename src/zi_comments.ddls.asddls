@@ -6,7 +6,7 @@ select from zbc_comments
 
 association to parent zi_tasks as _Task 
 on $projection.TaskKey = _Task.TaskKey
- {
+ { 
     key task_key as TaskKey,
     key comment_nr as CommentNr,
     comment_text as CommentText,

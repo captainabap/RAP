@@ -1,13 +1,4 @@
-unmanaged implementation in class zbp_i_tasks_um unique;
-strict ( 2 );
-
-define behavior for ZI_TASKS_UM //alias <alias_name>
-//late numbering
-lock master
-authorization master ( instance )
-//etag master <field_name>
-{
-  create;
-  update;
-  delete;
-}
+unmanaged;
+define behavior for ZI_TASKS_UM
+  {
+  }

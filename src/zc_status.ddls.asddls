@@ -6,7 +6,7 @@ define  root view entity zc_status
   provider contract transactional_query
   as projection on zi_status {
 
-         @UI.facet: [ {  id: 'Tasks',
+         @UI.facet: [ {  id: 'Tasks', 
                        purpose: #HEADER ,
                       type:     #IDENTIFICATION_REFERENCE,
                       label: 'Status Value',

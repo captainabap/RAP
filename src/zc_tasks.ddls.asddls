@@ -16,6 +16,7 @@ text: 'SelktionFariant' ,
                             sortOrder: [{by: 'ChangedAt'}] ,
                             text: 'Text'}]
 @Search.searchable: true
+@OData.publish: true
 define root view entity zc_tasks
   provider contract transactional_query
   as projection on zi_tasks

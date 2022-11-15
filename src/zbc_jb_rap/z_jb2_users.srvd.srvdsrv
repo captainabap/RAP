@@ -1,0 +1,6 @@
+@EndUserText.label: 'Users'
+define service Z_jb2_users {
+  expose ZI_JB2_USERS as users;
+  expose zi_jb2_tasks as tasks;
+  expose zi_jb1c_gender as gender;
+}
