@@ -13,18 +13,21 @@ annotate view zi_jb1_users with
   @Search: { defaultSearchElement: true,
              fuzzinessThreshold: 0.95,
              ranking: #HIGH }
+  @UI.dataPoint.title : 'User ID'
   UserId;
   @Search: { defaultSearchElement: true,
              fuzzinessThreshold: 0.7,
              ranking: #LOW }
   @UI: { lineItem:       [ { position: 20  } ] ,
-         selectionField: [{ position: 10 }]}
+         selectionField: [{ position: 10  }]}
+  @UI.dataPoint.title : 'Firstname'
   Firstname;
   @Search: { defaultSearchElement: true,
              fuzzinessThreshold: 0.7,
              ranking: #LOW }
-  @UI: { lineItem:       [ { position: 30, label: 'Nachname'  } ] ,
+  @UI: { lineItem:       [ { position: 30  } ] ,
          selectionField: [{ position: 20 }]}
+  @UI.dataPoint:{ title : 'Lastname'  }
   Lastname;
   @UI: { lineItem:       [ { position: 40  } ] }
   Email;

@@ -1,34 +1,68 @@
 @Metadata.layer: #CUSTOMER
-annotate view zi_jb2_tasks
-    with 
-{  @UI.facet: [  { id: 'Task',
-                  purpose:  #STANDARD,
-                  type:     #IDENTIFICATION_REFERENCE,
-                  label:    'Task',
-                  position: 10 } ]
-                  
-@UI.lineItem: [{ position: 10 }]
-@UI.identification: [{ position: 10 }]
-    TaskKey;
-    
-@UI.lineItem: [{ position: 10 }]
-    Summary;
-    
-@UI.lineItem: [{ position: 10 }]
-    Status;
-//    Project;
-//    Description;
-//    Assignee;
-//    Type;
-//    Author;
-//    ChangedAt;
-//    CreatedAt;
-//    DueDate;
-//    Solution;
-//    Priority;
-//    Product;
-    /* Associations */
-//    _Assignee;
-//    _Author;
-    
+annotate view zi_jb2_tasks with
+{
+  @UI.facet: [  { id: 'Task',
+                 purpose:  #STANDARD,
+                 type:     #IDENTIFICATION_REFERENCE,
+                 label:    'Task',
+                 position: 10,
+                   isPartOfPreview: false } ,
+                 { label: 'Task Info',
+                   purpose: #HEADER,
+                   type: #FIELDGROUP_REFERENCE,
+                   targetQualifier: 'TaskInfo' },
+                 { purpose: #STANDARD,
+                   type: #FIELDGROUP_REFERENCE,
+                   targetQualifier: 'Users',
+                   label: 'Users & Dates', 
+                   position: 20 ,
+                   isPartOfPreview: true}]
+
+  @UI.fieldGroup: [ { importance: #HIGH,
+                      position: 10,
+                      qualifier: 'TaskInfo' } ]
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  TaskKey;
+
+  @UI.fieldGroup: [ { importance: #HIGH,
+                      position: 20,
+                      qualifier: 'TaskInfo' } ]
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  Summary;
+
+  @UI.fieldGroup: [ { importance: #HIGH,
+                      position: 10,
+                      qualifier: 'TaskInfo' } ]
+  @UI.lineItem: [{ position: 30, label: 'Status(Key)' }]
+  @UI.identification: [{ position: 30 }]
+  Status;
+
+  @UI.lineItem: [{ position: 40, label: 'Project(Key)' }]
+  @UI.identification: [{ position: 40 }]
+  Project;
+  //    Description;
+
+  @UI.fieldGroup: [ {position: 10,
+                      qualifier: 'Users' } ]
+  Assignee;
+  //    Type;
+  @UI.fieldGroup: [ {position: 20,
+                      qualifier: 'Users' } ]
+  Author;
+  @UI.fieldGroup: [ {position: 30,
+                      qualifier: 'Users' } ]
+  ChangedAt;
+  @UI.fieldGroup: [ {position: 40,
+                      qualifier: 'Users' } ]
+  CreatedAt;
+  //    DueDate;
+  //    Solution;
+  //    Priority;
+  //    Product;
+  /* Associations */
+  //    _Assignee;
+  //    _Author;
+
 }

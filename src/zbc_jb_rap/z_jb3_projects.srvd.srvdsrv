@@ -1,0 +1,4 @@
+@EndUserText.label: 'Projects'
+define service Z_jb3_projects {
+  expose zi_jb3_projects as project;
+}

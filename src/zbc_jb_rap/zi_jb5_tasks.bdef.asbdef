@@ -1,0 +1,61 @@
+managed implementation in class zbp_i_jb5_tasks unique;
+strict;
+
+define behavior for ZI_jb5_tasks //alias <alias_name>
+persistent table zbc_tasks
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _Comments { create; }
+
+  action  cancel;
+
+  validation validateAssignee on save { create;
+                                        update;
+                                        field Assignee ;}
+
+  determination fillChangeFields on modify { create; }
+
+  mapping for zbc_tasks
+  {
+    TaskKey = task_key;
+    Summary = summary;
+    Status = status;
+    Project = project;
+    Description = description;
+    Assignee = assignee;
+    Type = type;
+    Author = author;
+    ChangedAt = changed_at;
+    CreatedAt = created_at;
+    DueDate = due_date;
+    Solution = solution;
+    Priority = priority;
+    Product = product;
+  }
+}
+
+define behavior for zi_jb5_comments //alias <alias_name>
+persistent table zbc_comments
+lock dependent by _Tasks
+authorization dependent by _Tasks
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) TaskKey;
+  association _Tasks;
+  mapping for zbc_comments
+  {
+    TaskKey = task_key;
+    CommentNr = comment_nr;
+    CommentText = comment_text;
+    Author = author;
+    ChangedAt = changed_at;
+    CreatedAt = created_at;
+  }
+}

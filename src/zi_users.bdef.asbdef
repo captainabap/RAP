@@ -1,8 +1,8 @@
-unmanaged implementation in class zbp_i_users unique;
-strict;
+managed implementation in class zbp_i_users unique;
+strict ;
 
 define behavior for zi_users //alias <alias_name>
-//late numbering
+persistent table ZBC_USERS
 lock master
 authorization master ( instance )
 //etag master <field_name>
@@ -10,4 +10,11 @@ authorization master ( instance )
   create;
   update;
   delete;
+  mapping for zbc_users{
+  UserId  =     user_id;
+Firstname  =    firstname;
+Lastname  =    lastname;
+Gender  =    gender;
+DateOfBirth  =    date_of_birth;
+}
 }

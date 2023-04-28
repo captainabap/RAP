@@ -4,8 +4,7 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZI_JB1C_GENDER</DDLNAME>
-    <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Gender Value Help</DDTEXT>
+    <DDLANGUAGE>D</DDLANGUAGE>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

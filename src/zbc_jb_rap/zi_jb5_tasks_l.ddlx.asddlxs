@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+annotate view ZI_jb5_tasks
+    with 
+{
+    @Search: { defaultSearchElement: true,
+               fuzzinessThreshold: 0.8
+    }
+    @UI.lineItem: [{ position: 10, importance: #HIGH, emphasized: true },
+                   { type: #FOR_ACTION , dataAction: 'cancel', label: 'Cancel' }]
+    TaskKey;
+    
+    @Search: { defaultSearchElement: true,
+               fuzzinessThreshold: 0.8
+    }
+    @UI.lineItem: [{ position: 20, importance: #HIGH }]
+    Summary;
+    
+    @Search: { defaultSearchElement: true,
+               fuzzinessThreshold: 0.8
+    }
+    @UI.lineItem: [{ position: 30 }]
+    Status;
+    
+    @UI.lineItem: [{ position: 40 }]
+    Project;
+    
+    @UI.lineItem: [{ position: 50 }]
+    Assignee;
+    
+    @UI.lineItem: [{ position: 60 }]
+    Type;
+    
+    @UI.lineItem: [{ position: 70 }]
+    Author;
+    
+    @UI.lineItem: [{ position: 80 }]
+    ChangedAt;
+    
+    @UI.lineItem: [{ position: 90 }]
+    CreatedAt;
+        
+    @UI.lineItem: [{ position: 100 }]
+    DueDate;
+        
+    @UI.lineItem: [{ position: 110 }]
+    Solution;
+    
+    @UI.lineItem: [{ position: 120 }]
+    Priority;
+    
+    @UI.lineItem: [{ position: 130 }]
+    Product;
+}

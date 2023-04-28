@@ -1,0 +1,74 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZI_jb5_tasks
+    with     
+{  
+ @UI.facet: [
+  { label: 'Details',
+    targetQualifier: 'Details',
+    type: #FIELDGROUP_REFERENCE,
+    purpose: #STANDARD,
+    position: 10
+  },
+  { label: 'Description',
+    targetQualifier: 'Description',
+    type: #FIELDGROUP_REFERENCE,
+    purpose: #STANDARD,
+    position: 20
+  },
+  { label: 'Process',
+    targetQualifier: 'Process',
+    type: #FIELDGROUP_REFERENCE,
+    purpose: #STANDARD,
+    position: 30
+  },
+  { label: 'Comments',
+    type: #LINEITEM_REFERENCE,
+    targetElement: '_Comments',
+    purpose: #STANDARD,
+    position: 40
+  }
+]
+
+
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 10 }]
+    TaskKey;
+    
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 20 }]
+    Summary;
+    
+    @UI.fieldGroup: [{ qualifier: 'Description', position: 20 }]
+    Description;
+    
+    @UI.fieldGroup: [{ qualifier: 'Process', position: 10 }]
+    Status;
+    
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 30 }]
+    Project;
+    
+    @UI.fieldGroup: [{ qualifier: 'Process', position: 20 }]
+    Assignee;
+    
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 40 }]
+    Type;
+    
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 50 }]
+    Author;
+    
+    @UI.fieldGroup: [{ qualifier: 'Process', position: 30 }]
+    ChangedAt;
+    
+    @UI.fieldGroup: [{ qualifier: 'Process', position: 10 }]
+    CreatedAt;
+        
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 25 }]
+    DueDate;
+        
+    @UI.fieldGroup: [{ qualifier: 'Process', position: 50 }]
+    Solution;
+    
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 35 }]
+    Priority;
+    
+    @UI.fieldGroup: [{ qualifier: 'Details', position: 60 }]
+    Product;
+}

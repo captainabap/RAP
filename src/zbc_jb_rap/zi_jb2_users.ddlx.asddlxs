@@ -2,7 +2,7 @@
 @Search.searchable: true
 @UI.headerInfo.typeName: 'User (singular)'
 @UI.headerInfo.typeNamePlural: 'Users'
-@UI.headerInfo.title: { label: 'User (Title)', 
+@UI.headerInfo.title: { value: 'userid', 
                         type: #STANDARD }
 annotate view ZI_JB2_USERS with
 { 
@@ -15,6 +15,7 @@ annotate view ZI_JB2_USERS with
                   purpose:  #STANDARD,
                   type:     #LINEITEM_REFERENCE,
                   label:    'Tasks to do',
+                  //hidden: #(Gender),
                   targetElement: '_TasksToDo',
                   position: 10 }
 //                  ,
@@ -47,7 +48,7 @@ annotate view ZI_JB2_USERS with
   Lastname;
   @UI: { lineItem:       [ { position: 40  } ] }
   Email;
-  @UI: { lineItem:       [ { position: 50 } ] ,
+  @UI: { lineItem:       [ { position: 50, type:  #STANDARD } ] ,
          selectionField: [{ position: 40  } ] }
   @Consumption.valueHelpDefinition: [{ entity: { name: 'zi_jb1c_gender',
                                                  element: 'value' } } ]

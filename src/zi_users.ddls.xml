@@ -4,8 +4,6 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZI_USERS</DDLNAME>
-    <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>User Management</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

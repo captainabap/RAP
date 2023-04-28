@@ -20,7 +20,7 @@ CLASS zbc_db_cleanup IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
   "  INSERT into zbc_statust values @( value #( status = 'NEW'   ) ).
-   clean_user_id( ).
+*   clean_user_id( ).
 *delete from zbc_users where firstname = ''.
 "   clean_task_key( ).
 
@@ -36,6 +36,8 @@ CLASS zbc_db_cleanup IMPLEMENTATION.
 *                                  on c~task_id = t~task_id ).
 *    delete from zbc_comments where task_key = ''.
   "  delete_invalid_taskkeys( ).
+*  update zbc_tasks set project = left( task_key , instr( task_key, '-' ) - 1 ).
+  update zbc_tasks set changed_at = '00000000.0000000' where changed_at = '20220101.000000'.
   ENDMETHOD.
 
 

@@ -7,7 +7,7 @@
     <TYPE>BDEF/BDO</TYPE>
     <DESCRIPTION>Status Maintenance</DESCRIPTION>
     <DESCRIPTION_TEXT_LIMIT>60</DESCRIPTION_TEXT_LIMIT>
-    <LANGUAGE>EN</LANGUAGE>
+    <LANGUAGE>DE</LANGUAGE>
     <LINKS>
      <item>
       <HREF>./zi_status/source/main/versions</HREF>

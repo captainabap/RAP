@@ -1,14 +1,13 @@
-class ZCL_TEST_CDS definition
-  public
-  final
-  create public .
+ CLASS zcl_test_cds  DEFINITION
+ PUBLIC
+ FINAL
+ CREATE PUBLIC
+ FOR TESTING.
 
-public section.
-protected section.
-private section.
-ENDCLASS.
+   PUBLIC SECTION.
+   PROTECTED SECTION.
+   PRIVATE SECTION.
+ ENDCLASS.
 
-
-
-CLASS ZCL_TEST_CDS IMPLEMENTATION.
-ENDCLASS.
+ CLASS zcl_test_cds  IMPLEMENTATION.
+ ENDCLASS.
